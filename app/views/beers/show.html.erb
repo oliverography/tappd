@@ -1,0 +1,23 @@
+<h1>Beers#show</h1>
+<p>Find me in app/views/beers/show.html.erb</p>
+
+<p>
+  LABEL:
+  <%= image_tag @beer.labels.large unless @beer.labels.to_s %><br />
+
+  NAME: <%= @beer.name %><br />
+
+  STYLE: <%= @beer.style.name %><br />
+
+  ABV: <%= @beer.abv %><br />
+
+  IBU: <%= @beer.ibu %><br />
+
+  AVAILABILITY: <%= @beer.available.name unless @beer.available.nil? %><br />
+
+  DESCRIPTION: <%= @beer.description %><br />
+</p>
+
+<%= link_to("NO THANKS", beers_index_path, method: :get) %>
+
+<%= link_to("LET'S DRINK", beer_path, method: :post) %>

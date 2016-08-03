@@ -1,4 +1,4 @@
-# tappd_app
+# TAPPED
 
 This group project is one of your many chances to apply what you've learned about web development in this class to a project you can show your peers, instructors, and potential employers.
 
