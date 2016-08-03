@@ -3,9 +3,11 @@
 
 <p>
   LABEL:
-  <%= image_tag @beer.labels.large unless @beer.labels.to_s %><br />
+  <%= image_tag @beer.labels.large unless @beer.labels.nil? %><br />
 
   NAME: <%= @beer.name %><br />
+
+  <!-- brewery to be added -->
 
   STYLE: <%= @beer.style.name %><br />
 
@@ -18,6 +20,19 @@
   DESCRIPTION: <%= @beer.description %><br />
 </p>
 
-<%= link_to("NO THANKS", beers_index_path, method: :get) %>
+<%= button_to "NO THANKS", beers_path, { method: "get" } %>
 
-<%= link_to("LET'S DRINK", beer_path, method: :post) %>
+<%= form_for @beerLocal, :url => "/beers" do |f| %>
+  <%= f.hidden_field :label, value: @beer.labels.medium unless @beer.labels.nil? %> 
+  <%= f.hidden_field :name, value: @beer.name %>
+  <!-- brewery to be added -->
+  <%= f.hidden_field :style, value: @beer.style.name unless @beer.style.nil? %>  
+  <%= f.hidden_field :abv, value: @beer.abv %>
+  <%= f.hidden_field :ibu, value: @beer.ibu %>
+  <%= f.hidden_field :available, value: @beer.available.name unless @beer.available.nil? %>
+  <%= f.hidden_field :user_id, value: 1 %>
+  <!-- < f.hidden_field :user_id, value: current_user.id unless current_user.id.nil? > -->
+  <%= f.hidden_field :description, value: @beer.description %>
+  
+  <%= f.submit value: "POST", class: "button" %>
+<% end %>

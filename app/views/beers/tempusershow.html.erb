@@ -1,0 +1,28 @@
+<h1>User#show</h1>
+<p>Find me in app/views/beers/show.html.erb</p>
+
+<% if @user.posts.length == 0 %>
+  <p>No beers yet.</p>
+<% end %>
+
+<% @user.beers.order('created_at DESC').each do |beer| %>
+  <p>
+    LABEL: <%= image_tag beer.label unless beer.label.nil? %><br />
+
+    NAME: <%= beer.name %><br />
+
+    <!-- brewery to be added -->
+
+    STYLE: <%= beer.style %><br />
+
+    ABV: <%= beer.abv %><br />
+
+    IBU: <%= beer.ibu %><br />
+
+    AVAILABILITY: <%= beer.available.name unless beer.available.nil? %><br />
+
+    DESCRIPTION: <%= beer.description %><br />
+
+    <%= link_to("DELETE", beer_path(beer.id), method: :delete, data: {confirm: 'Are you sure?'}) %>
+  </p>
+<% end %>
