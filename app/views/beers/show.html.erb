@@ -26,7 +26,9 @@
 
 <%= button_to "NO THANKS", beers_path, { method: "get" } %>
 
-<%= form_for @beerLocal, :url => "/beers" do |f| %>
+      <!-- , :url => "/beers" -->
+
+<%= form_for(@beerLocal, remote: true) do |f| %>
   <%= f.hidden_field :label, value: @beer.labels.medium unless @beer.labels.nil? %> 
   <%= f.hidden_field :name, value: @beer.name %>
   <!-- brewery to be added -->

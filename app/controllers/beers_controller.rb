@@ -12,27 +12,33 @@ class BeersController < ApplicationController
     @beer = brewery_db.beers.find(params[:id])
 
     @beerLocal = Beer.new
-
   end
 
   def create
+    # save beer to beer list
     # @beerLocal = Beer.create(beer_params)
 
+    # Store lat_lng cookie value in variable
     @lat_lng = cookies[:lat_lng].split("|")
 
-    # MATCHING PSEUDO CODE 
+    # get all checkins that with matching beer name
+    @checkinsWithBeer = Checkin.where(beerName: "Anniversary")
+    # narrow checkins down to those within user's maxRadius
+    @checkinsWithBeerAndNear = @checkinsWithBeer.near([@lat_lng[0], @lat_lng[1]], current_user.maxRadius)
 
-    # find checkins where beername is @beer.name
-    @checkinsWithBeer = Checkin.where(email: "oliverography@gmail.com")
+    # first entry is the closest
+    @nearstCheckinWithBeer = @checkinsWithBeerAndNear[0]
 
-    if @checkinsWithBeer.nil?
-      # @checkinsWithBeer = Checkin.where(beername)
+    if Checkin.where(beerName: "Anniversary").exists?
+      respond_to do |format|
+        
+        # run create.js.erb to create modal
+        format.js
+      end
+    else
       redirect_to beers_path
-    else   
-      redirect_to users_path
     end
 
-    # redirect_to beers_path
   end
 
   def destroy
