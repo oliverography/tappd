@@ -16,21 +16,23 @@ class BeersController < ApplicationController
   end
 
   def create
-    @beerLocal = Beer.create(beer_params)
+    # @beerLocal = Beer.create(beer_params)
 
     @lat_lng = cookies[:lat_lng].split("|")
 
     # MATCHING PSEUDO CODE 
 
     # find checkins where beername is @beer.name
-    
+    @checkinsWithBeer = Checkin.where(email: "oliverography@gmail.com")
 
-    # if @checkinsWithBeer = Checkins.where(beername: @beer.name)
-      
-    # else
-    #   redirect_to beers_path
-    # end
-    redirect_to beers_path
+    if @checkinsWithBeer.nil?
+      # @checkinsWithBeer = Checkin.where(beername)
+      redirect_to beers_path
+    else   
+      redirect_to users_path
+    end
+
+    # redirect_to beers_path
   end
 
   def destroy
