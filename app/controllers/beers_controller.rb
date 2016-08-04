@@ -2,7 +2,6 @@ class BeersController < ApplicationController
 
   def index
     # index redirects to a random beer
-
     redirect_to beer_path(brewery_db.beers.random.id)
 
     # identical redirect, alternate syntax
@@ -13,29 +12,31 @@ class BeersController < ApplicationController
     @beer = brewery_db.beers.find(params[:id])
 
     @beerLocal = Beer.new
+
   end
 
   def create
     @beerLocal = Beer.create(beer_params)
 
+    @lat_lng = cookies[:lat_lng].split("|")
+
     # MATCHING PSEUDO CODE 
-    # find checkins where beername is @beerLocal.name
 
-    # if nil
-    #   redirect to beers_path
+    # find checkins where beername is @beer.name
+    
+
+    # if @checkinsWithBeer = Checkins.where(beername: @beer.name)
+      
     # else
-    #   sort by distance from user
-
-    #   if closest distance < travelradius
-    #     jquery modal with checkin.address passed into google map link
-
-    #     modal close is redirect to beers_path
-    #   else
-    #     redirect to beers_path
-    #   end
+    #   redirect_to beers_path
     # end
-
     redirect_to beers_path
+  end
+
+  def destroy
+    Beer.find(params[:id]).destroy
+
+    redirect_to :back
   end
 
   private
