@@ -3,13 +3,17 @@
 
 <p>
   LABEL:
-  <%= image_tag @beer.labels.large unless @beer.labels.nil? %><br />
+  <% if @beer.labels.nil? %>
+    <%= image_tag ("beer-nil.png") %>
+  <% else %>
+    <%= image_tag @beer.labels.large %>
+  <% end %><br />
 
   NAME: <%= @beer.name %><br />
 
   <!-- brewery to be added -->
 
-  STYLE: <%= @beer.style.name %><br />
+  STYLE: <%= @beer.style.name unless @beer.style.nil? %><br />
 
   ABV: <%= @beer.abv %><br />
 
@@ -30,9 +34,14 @@
   <%= f.hidden_field :abv, value: @beer.abv %>
   <%= f.hidden_field :ibu, value: @beer.ibu %>
   <%= f.hidden_field :available, value: @beer.available.name unless @beer.available.nil? %>
-  <%= f.hidden_field :user_id, value: 1 %>
-  <!-- < f.hidden_field :user_id, value: current_user.id unless current_user.id.nil? > -->
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :description, value: @beer.description %>
-  
-  <%= f.submit value: "POST", class: "button" %>
+  <%= f.submit value: "LET'S DRINK", class: "button" %>
 <% end %>
+
+<p>Temp Info</p>
+<p id="demo">Coordinates</p>
+
+<script>
+  getLocation();
+</script>
