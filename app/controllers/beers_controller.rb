@@ -2,9 +2,10 @@ class BeersController < ApplicationController
 
   def index
     # index redirects to a random beer
+
     @beerRandom = brewery_db.beers.random(hasLabels: 'Y')
     redirect_to beer_path(@beerRandom.id)
-
+    
     # identical redirect, alternate syntax
     # redirect_to :action => "show", :id => brewery_db.beers.random.id
   end
