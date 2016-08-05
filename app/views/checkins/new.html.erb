@@ -1,0 +1,24 @@
+<%= form_for @checkin   do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :beerName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :venue %>
+    <%= f.text_field :venue %>
+  </div>
+
+
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+    <div class="actions">
+    <%= f.submit %>
+    <div class="field">
+
+<% end %>
