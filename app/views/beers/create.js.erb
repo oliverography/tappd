@@ -1,14 +1,16 @@
-// inserts modal html
+// MATCH MODAL
+
+// Inserts modal html
 $( "body" ).append( "<%= j render(:partial => 'match') %>" );
 // fade in
 $( "#overlay" ).fadeIn(150);
 
 // Click "X" to exit out and reload
-$("#close").on('click', "#lightbox", function() {
+$("#overlay").on('click', "#close", function() {
   // fade out
-  $( "#lightbox" ).fadeOut(150);
+  $( "#overlay" ).fadeOut(150);
   // remove lightbox after setTimeout
-  setTimeout(function() { 
-    $( "#lightbox" ).remove();
-  }, 150);
+  setTimeout( function() {
+    $(location).attr('href', '/beers')
+  }, 100);
 });
