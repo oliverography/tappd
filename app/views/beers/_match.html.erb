@@ -1,1 +1,23 @@
-<div id='lightbox' class='hidden'></div>
+<div id="overlay" class="hidden">
+  <div class="beermug">
+    <%= image_tag ("beer2.svg") %>
+  </div>
+
+  <p class="dreambeer">
+    YOUR DREAM BEER IS NEARBY!
+  </p>
+
+  <div class="envelope">
+    <%= image_tag ("envelope.svg") %>
+  </div>
+
+  <p class="venue">
+    <%= @nearstCheckinWithBeer.venue %>
+  </p>
+
+  <p class="address">
+    <%= @nearstCheckinWithBeer.address %>
+  </p>
+
+  <div id="close"></div>
+</div>
