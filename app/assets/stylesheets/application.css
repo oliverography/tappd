@@ -32,39 +32,16 @@ MATCH MODAL
 }
 
 .beermug {
-  
-}
+  width: 150px;
+  margin: 75px 0 25px 0;
 
-.beermug img {
-  width: 15%;
-  padding-top: 75px;
 }
 
 .dreambeer {
-  font-family: courier;
+  font-family: Courier;
   color: #f28500;
-  
-  font-size: 27px;
-  letter-spacing: -1px;
-}
-
-.envelope {
-  
-}
-
-.envelope img {
-  width: 15%;
-}
-
-.venue {
-  font-family: Arial;
-  color: white;
-  font-weight: bold;
-}
-
-.address {
-  font-family: Arial;
-  color: white;
+  font-size: 24px;
+  margin-bottom: 25px;
 }
 
 #close {
