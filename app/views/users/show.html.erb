@@ -1,28 +1,31 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="outline"></div>
+
+<div class="tappd">TAPPD</div>
+
+<p class="mybeers">MY BEERS</p>
 
 <% if @user.beers.length == 0 %>
   <p>No beers yet.</p>
 <% end %>
 
 <% @user.beers.order('created_at DESC').each do |beer| %>
-  <p>
-    LABEL: <%= image_tag beer.label unless beer.label.nil? %><br />
 
-    NAME: <%= beer.name %><br />
+    <%= image_tag beer.label unless beer.label.nil? %>
+
+    <p class="beertype">NAME: <%= beer.name %></p>
 
     <!-- brewery to be added -->
 
-    STYLE: <%= beer.style %><br />
+    <p class="beerbrand">STYLE: <%= beer.style %></p>
 
-    ABV: <%= beer.abv %><br />
+    <p class="beerbrand">ABV: <%= beer.abv %></p>
 
-    IBU: <%= beer.ibu %><br />
+    <p class="beerbrand">IBU: <%= beer.ibu %></p>
 
-    AVAILABILITY: <%= beer.available unless beer.available.nil? %><br />
+    <p class="beerbrand">AVAILABILITY: <%= beer.available unless beer.available.nil? %></p>
 
-    DESCRIPTION: <%= beer.description %><br />
+    <p class="beerbrand">DESCRIPTION: <%= beer.description %></p>
 
-    <%= link_to("DELETE", beer_path(beer.id), method: :delete, data: {confirm: 'Are you sure?'}) %>
-  </p>
+    <p class="beerbrand"><%= link_to("DELETE", beer_path(beer.id), method: :delete, data: {confirm: 'Are you sure?'}) %></p>
+
 <% end %>

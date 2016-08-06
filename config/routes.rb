@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'devise/sessions#new'
-
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
   resources :beers
   resources :users
   resources :checkins
+
   # Example resource route with options:
   #   resources :products do
   #     member do
