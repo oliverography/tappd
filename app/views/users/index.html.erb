@@ -1,0 +1,24 @@
+<div class="head1"><%= image_tag("gear.png") %><span>TAPPD</span><%= link_to "HOME", users_path %></div>
+
+
+<center><% if @user.beers.length == 0 %>
+  <p>No beers yet.</p>
+<% end %>
+
+<% @user.beers.order('created_at DESC').each do |beer| %>
+<table class="te">
+    <tr>
+        <td rowspan="2" style="text-align:center" id="middle"><%= image_tag beer.label unless beer.label.nil? %></td>
+        <td> NAME: <%= beer.name %><br><br>
+            ABV:<%= beer.abv %><br><br>
+        DESCRIPTION:<br> <%= beer.description %><br>
+    </td>
+    </tr>
+    <tr>
+    <td style="text-align:center">
+    <span class="beerbrand"><%= link_to("DELETE", beer_path(beer.id), method: :delete, data: {confirm: 'Are you sure?'}) %></span>
+    </td>
+    </tr>
+</table>
+<% end %>
+</center>

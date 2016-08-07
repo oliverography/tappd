@@ -1,3 +1,16 @@
-alert("modal time! with ruby variables!")
+// MATCH MODAL
 
-// @nearstCheckinWithBeer.venue
+// Inserts modal html
+$( "body" ).append( "<%= j render(:partial => 'match') %>" );
+// fade in
+$( "#overlay" ).fadeIn(150);
+
+// Click "X" to exit out and reload
+$("#overlay").on('click', "#close", function() {
+  // fade out
+  $( "#overlay" ).fadeOut(150);
+  // remove lightbox after setTimeout
+  setTimeout( function() {
+    $(location).attr('href', '/beers')
+  }, 100);
+});

@@ -1,40 +1,53 @@
-<h1>Beers#show</h1>
-<p>Find me in app/views/beers/show.html.erb</p>
+<div class="head1"><%= image_tag("gear.png") %><span>TAPPD</span><%= link_to "MY BEERS", users_path %></div>
 
-<p>
-  LABEL:
-  <% if @beer.labels.nil? %>
-    <%= image_tag ("beer-nil.png") %>
-  <% else %>
-    <%= image_tag @beer.labels.large %>
-  <% end %><br />
+<center>
+  <table id="tble">
+  <tr>
+    <td colspan="2">
+      <center><% if @beer.labels.nil? %>
+        <%= image_tag ("beer-nil.png") %>
+      <% else %>
+        <%= image_tag @beer.labels.large %>
+      <% end %><br /></center>
 
-  NAME: <%= @beer.name %><br />
+      <span class="bold"> NAME: <%= @beer.name %></span><br>
 
-  BREWERY: <%= @beer.breweries[0].name %><br /> 
+       BREWERY: <%= @beer.breweries[0].name %><br> 
 
-  STYLE: <%= @beer.style.name unless @beer.style.nil? %><br />
+       STYLE: <%= @beer.style.name unless @beer.style.nil? %><br>
+      
+      AVAILABILITY: <%= @beer.available.name unless @beer.available.nil? %><br>
 
-  ABV: <%= @beer.abv %><br />
+       ABV: <%= @beer.abv %><br>
 
-  IBU: <%= @beer.ibu %><br />
+      IBU: <%= @beer.ibu %><br>
+      <br>
 
-  AVAILABILITY: <%= @beer.available.name unless @beer.available.nil? %><br />
+      <span class="bold">DESCRIPTION: </span><br>
+      <%= @beer.description %><br>
+    </td>
+  </tr>
+  <tr>
+    <td class="cntr"><%= button_to "NO THANKS", beers_path, { method: "get" }%></td>
+    <td class="cntr">
+      <%= form_for(@beerLocal, remote: true) do |f| %>
+        <%= f.hidden_field :label, value: @beer.labels.medium unless @beer.labels.nil? %> 
+        <%= f.hidden_field :name, value: @beer.name %>
+        <%= f.hidden_field :brewery, value: @beer.breweries[0].name %>
+        <%= f.hidden_field :style, value: @beer.style.name unless @beer.style.nil? %>  
+        <%= f.hidden_field :abv, value: @beer.abv %>
+        <%= f.hidden_field :ibu, value: @beer.ibu %>
+        <%= f.hidden_field :available, value: @beer.available.name unless @beer.available.nil? %>
 
-  DESCRIPTION: <%= @beer.description %><br />
-</p>
+        <%= f.hidden_field :description, value: @beer.description %>
+        <%= f.submit value: "LET'S DRINK", class: "button" %>
+      <% end %>
+    </td>
+  </tr>
+  </table>
+</center>
 
-<%= button_to "NO THANKS", beers_path, { method: "get" } %>
 
-<%= form_for(@beerLocal, remote: true) do |f| %>
-  <%= f.hidden_field :label, value: @beer.labels.medium unless @beer.labels.nil? %> 
-  <%= f.hidden_field :name, value: @beer.name %>
-  <%= f.hidden_field :brewery, value: @beer.breweries[0].name %>
-  <%= f.hidden_field :style, value: @beer.style.name unless @beer.style.nil? %>  
-  <%= f.hidden_field :abv, value: @beer.abv %>
-  <%= f.hidden_field :ibu, value: @beer.ibu %>
-  <%= f.hidden_field :available, value: @beer.available.name unless @beer.available.nil? %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :description, value: @beer.description %>
-  <%= f.submit value: "LET'S DRINK", class: "button" %>
-<% end %>
+<script>
+  getLocation()
+</script>

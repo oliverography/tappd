@@ -1,0 +1,17 @@
+<div id="overlay" class="hidden">
+
+  <%= image_tag ("beer2.svg"), class: "beermug" %>
+
+  <p class="dreambeer">
+    YOUR DREAM BEER IS NEARBY!
+  </p>
+
+  <iframe
+    width="400"
+    height="300"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB6GZecOq_8nuxVDUQ0OSPLW33dt6PphK4&q=<%= @nearstCheckinWithBeer.venue %>+<%= @nearstCheckinWithBeer.address %>" allowfullscreen>
+  </iframe>
+
+  <div id="close"></div>
+</div>
