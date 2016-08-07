@@ -4,11 +4,11 @@
   <table id="tble">
   <tr>
     <td colspan="2">
-      <center><% if @beer.labels.nil? %>
+     <% if @beer.labels.nil? %>
         <%= image_tag ("beer-nil.png") %>
       <% else %>
         <%= image_tag @beer.labels.large %>
-      <% end %><br /></center>
+      <% end %><br />
 
       <span class="bold"> NAME: <%= @beer.name %></span><br>
 
@@ -28,7 +28,7 @@
     </td>
   </tr>
   <tr>
-    <td class="cntr"><%= button_to "NO THANKS", beers_path, { method: "get" }%></td>
+    <td class="cntr" id= "lft"><%= button_to "NO THANKS", beers_path, { method: "get" }%></td>
     <td class="cntr">
       <%= form_for(@beerLocal, remote: true) do |f| %>
         <%= f.hidden_field :label, value: @beer.labels.medium unless @beer.labels.nil? %> 
@@ -40,7 +40,7 @@
         <%= f.hidden_field :available, value: @beer.available.name unless @beer.available.nil? %>
 
         <%= f.hidden_field :description, value: @beer.description %>
-        <%= f.submit value: "LET'S DRINK", class: "button" %>
+        <%= f.submit value: "LET'S DRINK", class: "button", id: "rght"%>
       <% end %>
     </td>
   </tr>
