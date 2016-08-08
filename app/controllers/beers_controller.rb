@@ -1,12 +1,13 @@
 class BeersController < ApplicationController
 
   def index
+    if current_user
     # index redirects to a random beer
-    @beerRandom = brewery_db.beers.random(hasLabels: 'Y')
-    redirect_to beer_path(@beerRandom.id)
-    
-    # identical redirect, alternate syntax
-    # redirect_to :action => "show", :id => brewery_db.beers.random.id
+      @beerRandom = brewery_db.beers.random(hasLabels: 'Y')
+      redirect_to beer_path(@beerRandom.id)
+    else
+      redirect_to new_user_session_url
+    end
   end
 
   def show
