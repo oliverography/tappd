@@ -1,17 +1,21 @@
 <section id="landing">
-  <%= image_tag "heartbottle.svg", id: "logo" %>
+  <div id="content">
+    <div id="title_area">
+      <%= image_tag "heartbottle.svg", id: "logo" %>
 
-  <div id="title">TAPPD</div>
-  <div id="motto">TAP TO FIND YOUR DREAM BEER</div>
+      <div id="title">TAPPD</div>
+      <div id="motto">TAP TO FIND YOUR DREAM BEER</div>
+    </div>
+    <div id="devise_form">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.email_field :email, autofocus: true, placeholder: "EMAIL", class: "field" %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "PASSWORD", class: "field" %>
+        <%= f.submit "SIGN IN", class: "button sign" %>
+      <% end %>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= f.email_field :email, autofocus: true, placeholder: "EMAIL", class: "field" %>
-    <%= f.password_field :password, autocomplete: "off", placeholder: "PASSWORD", class: "field" %>
-    <%= f.submit "LOG IN", class: "button sign_in" %>
-  <% end %>
-
-  <div id="devise_links">
-    <%= render "devise/shared/links" %>
+      <div id="devise_links">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div> 
   </div>
 </section>
-
