@@ -25,7 +25,7 @@
         </div>
       </div>
       <div id="buttons">
-        <%= button_to "NO THANKS", beers_path, method: "get", class: "button dislike" %>
+        <%= button_to "NO THANKS", beers_random_path, method: "get", class: "button dislike" %>
 
         <%= form_for(@beerLocal, remote: true) do |f| %>
           <%= f.hidden_field :label, value: @beer.labels.medium unless @beer.labels.nil? %>
