@@ -6,69 +6,62 @@
 BEERS
 ============================================================*/
 
-
-#wrapper {
-  position: relative;
-  top: 10vh;
-  left: 50vw;
-  width: 385px;
-  -ms-transform: translate(-50%, 0); /* IE 9 */
-  -webkit-transform: translate(-50%, 0); /* Safari */
-  transform: translate(-50%, 0);
-  // border: solid 1px red;
-}
-
-#card {
-  // border: solid 1px lightgrey;
-  padding: 10px;
+#beer .card {
   margin-bottom: 20px;
+  padding: 10px;
 }
 
-#label {
-  // border: solid 1px lightgrey;
-  width: 365px;
-  height: 365px;
+#beer .card .label {
   background-size: 365px 365px;
-  margin-bottom: 10px;
   border-radius: 10px;
-}
-
-#label_small {
-  // border: solid 1px lightgrey;
-  width: 150px;
-  height: 150px;
-  background-size: 150px 150px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-}
-
-#beer_info {
-  // border: solid 1px lightgrey;
+  height: 365px;
   width: 365px;
-  height: 185px;
+  margin-bottom: 10px;
+}
+
+#beer .card .beer_info {
   background-color: white;
   border-radius: 10px;
+  height: 185px;
+  width: 365px;
+  line-height: 24px;
   padding: 15px;
+  text-align: left;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
 
-.beer {
-  line-height: 24px;
+#list .card {
+  height: 150px;
+  margin-bottom: 30px;
 }
 
-.beer.name {
+#list .card .label {
+  background-size: 150px 150px;
+  border-radius: 10px;
+  display: inline-block;
+  float: left;
+  height: 150px;
+  width: 150px;
+  margin-right: 15px;
+}
+
+#list .card .beer_info {
+  display: inline-block;
+  float: left;
+  position: relative;
+  top: 50%;
+  text-align: left;
+  line-height: 24px;
+  -ms-transform: translate(0, -50%); /* IE 9 */
+  -webkit-transform: translate(0, -50%); /* Safari */
+  transform: translate(0, -50%);
+}
+
+.name {
   font-weight: bold;
 }
-
-p {
-
-}
-
-// #buttons {
-//   border: solid 1px lightgrey;
-// }
 
 .button.dislike {
   color: white;
@@ -94,101 +87,4 @@ p {
 .button.like:hover {
   background-color: darkgreen;
   transition: all 0.5s ease;
-}
-
-
-
-
-
-
-// .head1{
-//   width: 400px;
-//   height: 18px;
-//   padding: 10px;
-//   margin: 0;
-//   background-color: #f28500;
-//   margin-left: auto;
-//   margin-right: auto;
-//   font-family: courier;
-//   font-size: 25px;
-//   color: white;
-//   text-align: center;
-//   padding-bottom: 25px;
-//   position: relative;
-// }
-
-// .head1 img{
-//   width: 18px;
-//   position:absolute;
-//   left: 3px;
-//   text-align: right;
-// }
-
-// .head1 img:hover{
-//   cursor:pointer;
-//   width: 19px;
-// }
-
-#tble{
-  width: 400px;
-  font-family:Times New Roman;
-  font-size: 12px;
-}
-
-#tble img{
-padding: 2px;
-  width: 400px;
-}
-
-.bold{
-  font-style: Baskerville;
-}
-
-.cntr{
-  text-align:center;
-}
-
-#desc{
-margin:0;
-padding:0;
-
-}
-
-#lft input{
-margin: 5px;
-  border-radius: 10px;
-    border: 1px solid black;
-    box-shadow: 0 0 0 2px black;
-  background-color:#f28500;
-  color:white;
-}
-
-#lft input:hover{
-  border: 1px solid white;
-  cursor:pointer;
-   background-color:red;
-}
-
-#rght{
-margin: 5px;
-  border-radius: 10px;
-    border: 1px solid black;
-    box-shadow: 0 0 0 2px black;
-  background-color:#f28500;
-  color:white;
-}
-
-#rght:hover{
-  border: 1px solid white;
-  cursor:pointer;
-  background-color:green;
-}
-
-#mylist{
-  width:400px;
-  text-align:justify;
-}
-#mylist img{
-  float:left;
-  padding: 5px
 }

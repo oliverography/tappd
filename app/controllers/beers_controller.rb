@@ -1,8 +1,18 @@
 class BeersController < ApplicationController
 
-  def index
+  # def index
+  #   if current_user
+  #   # index redirects to a random beer
+  #     @beerRandom = brewery_db.beers.random(hasLabels: 'Y')
+  #     redirect_to beer_path(@beerRandom.id)
+  #   else
+  #     redirect_to new_user_session_url
+  #   end
+  # end
+
+  def random
     if current_user
-    # index redirects to a random beer
+    # redirects to a random beer
       @beerRandom = brewery_db.beers.random(hasLabels: 'Y')
       redirect_to beer_path(@beerRandom.id)
     else
@@ -30,8 +40,9 @@ class BeersController < ApplicationController
     # first entry is the closest
     @nearstCheckinWithBeer = @checkinsWithBeerAndNear[0]
 
-    if @checkinsWithBeerAndNear.blank?
-      redirect_to beers_path
+    # if @checkinsWithBeerAndNear.blank?
+    if true
+      redirect_to beers_random_path
     else
       respond_to do |format|
         

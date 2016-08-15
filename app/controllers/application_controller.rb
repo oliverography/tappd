@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def brewery_db
     @brewery_db = BreweryDB::Client.new do |config|
-      config.api_key = ENV["BREWERYDB_API_KEY"]
+      config.api_key = ENV["BREWERYDB_API_KEY2"]
     end
   end
 
