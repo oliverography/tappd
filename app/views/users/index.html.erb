@@ -1,23 +1,26 @@
-<div class="head1"><%= link_to image_tag("gear.png"),  edit_user_registration_path, :id => 'floatLeft' %><span>TAPPD</span><%= link_to "HOME", beers_path, :class => 'floatRight' %></div>
+<nav>
+  <%= link_to :back do %>
+    <%= image_tag "heartbottle.svg", class: "leftIcon" %>
+  <% end %>
+  <h1>TAPPD</h1>
+</nav>
 
+<main>
+  <div id="wrapper">
+    <% if @user.beers.length == 0 %>
+      <p>No beers yet.</p>
+    <% end %>
 
-<center>
-<div id ="mylist">
-<% if @user.beers.length == 0 %>
-  <p>No beers yet.</p>
-<% end %>
-
-<% @user.beers.order('created_at DESC').each do |beer| %>
-
-<%= image_tag beer.label unless beer.label.nil? %>
-    <p> NAME: <%= beer.name %><br><br>
-            ABV:<%= beer.abv %><br><br>
-        DESCRIPTION:<br> <%= beer.description %><br><br></p>
-  
-
-   
-    <p class="beerbrand"><%= link_to("DELETE", beer_path(beer.id), method: :delete, data: {confirm: 'Are you sure?'}) %></p>
-
-<% end %>
-</div>
-</center>
+    <% @user.beers.order('created_at DESC').each do |beer| %>
+      <div id="label_small" style="background-image: url(<%= beer.label %>)"></div>
+      <%= beer.name %>
+      <%= beer.brewery %>
+      <%= beer.style %>
+      Availability: <%= beer.available %>
+      <%= beer.abv %>
+      <%= beer.description %>
+      
+      <p class="beerbrand"><%= link_to("DELETE", beer_path(beer.id), method: :delete, data: {confirm: 'Are you sure?'}) %></p>
+    <% end %>
+  </div>
+</main>
