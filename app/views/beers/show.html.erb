@@ -1,14 +1,14 @@
 <nav>
   <%= link_to edit_user_registration_path do %>
-    <%= image_tag "settings.svg", class: "settings" %>
+    <%= image_tag "settings.svg", class: "leftIcon" %>
   <% end %>
   <h1>TAPPD</h1>
   <%= link_to users_path do %>
-    <%= image_tag "heart.svg", class: "heart" %>
+    <%= image_tag "heart.svg", class: "rightIcon" %>
   <% end %>
 </nav>
 
-<section id="main">
+<main>
   <div id="wrapper">
     <div id="card">
       <div id="label" style="background-image: url(<%= @beer.labels.large %>)">
@@ -40,7 +40,7 @@
       <% end %>
     </div>
   </div>  
-</section>
+</main>
 
 <script>
   getLocation()

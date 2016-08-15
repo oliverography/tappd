@@ -3,43 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*============================================================
-NAV
-============================================================*/
-nav {
-  width: 100vw;
-  height: 50px;
-  margin: 0;
-  background-color: #f28500;
-  text-align: center;
-}
-
-.settings {
-  width: 24px;
-  height: 24px;
-  font-size: 12px;
-  position: absolute;
-  top: 13px;
-  left: 13px;
-}
-
-.heart {
-  width: 24px;
-  height: 24px;
-  font-size: 12px;
-  position: absolute;
-  top: 13px;
-  right: 13px;
-}
-
-/*============================================================
 BEERS
 ============================================================*/
-#main {
-  background-color: #faead7;
-  // text-align: center;
-  width: 100vw;
-  height: 100vh;
-}
+
 
 #wrapper {
   position: relative;
@@ -63,6 +29,15 @@ BEERS
   width: 365px;
   height: 365px;
   background-size: 365px 365px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+#label_small {
+  // border: solid 1px lightgrey;
+  width: 150px;
+  height: 150px;
+  background-size: 150px 150px;
   margin-bottom: 10px;
   border-radius: 10px;
 }
