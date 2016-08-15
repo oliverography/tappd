@@ -10,6 +10,16 @@ class BeersController < ApplicationController
     end
   end
 
+  def random
+    if current_user
+    # index redirects to a random beer
+      @beerRandom = brewery_db.beers.random(hasLabels: 'Y')
+      redirect_to beer_path(@beerRandom.id)
+    else
+      redirect_to new_user_session_url
+    end
+  end
+
   def show
     @beer = brewery_db.beers.find(params[:id], withBreweries: 'Y')
 
@@ -18,27 +28,27 @@ class BeersController < ApplicationController
 
   def create
     # Store lat_lng cookie value in variable
-    @lat_lng = cookies[:lat_lng].split("|")
+    # @lat_lng = cookies[:lat_lng].split("|")
     # save beer to user's beer list
-    @beerLocal = Beer.create(beer_params)
+    # @beerLocal = Beer.create(beer_params)
 
     # MATCHING
     # get all checkins that with matching beer name
-    @checkinsWithBeer = Checkin.where(beerName: @beerLocal.name)
+    # @checkinsWithBeer = Checkin.where(beerName: @beerLocal.name)
     # narrow checkins down to those within user's maxRadius
-    @checkinsWithBeerAndNear = @checkinsWithBeer.near([@lat_lng[0], @lat_lng[1]], current_user.maxRadius)
+    # @checkinsWithBeerAndNear = @checkinsWithBeer.near([@lat_lng[0], @lat_lng[1]], current_user.maxRadius)
     # first entry is the closest
-    @nearstCheckinWithBeer = @checkinsWithBeerAndNear[0]
+    # @nearstCheckinWithBeer = @checkinsWithBeerAndNear[0]
 
-    if @checkinsWithBeerAndNear.blank?
+    # if @checkinsWithBeerAndNear.blank?
       redirect_to beers_path
-    else
-      respond_to do |format|
+    # else
+    #   respond_to do |format|
         
-        # run create.js.erb to create modal
-        format.js
-      end
-    end
+    #     # run create.js.erb to create modal
+    #     format.js
+    #   end
+    # end
 
   end
 

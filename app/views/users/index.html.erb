@@ -7,20 +7,25 @@
 
 <main>
   <div id="wrapper">
-    <% if @user.beers.length == 0 %>
-      <p>No beers yet.</p>
-    <% end %>
+    <div id="list">
+      <% if @user.beers.length == 0 %>
+        <p>No beers yet.</p>
+      <% end %>
 
-    <% @user.beers.order('created_at DESC').each do |beer| %>
-      <div id="label_small" style="background-image: url(<%= beer.label %>)"></div>
-      <%= beer.name %>
-      <%= beer.brewery %>
-      <%= beer.style %>
-      Availability: <%= beer.available %>
-      <%= beer.abv %>
-      <%= beer.description %>
-      
-      <p class="beerbrand"><%= link_to("DELETE", beer_path(beer.id), method: :delete, data: {confirm: 'Are you sure?'}) %></p>
-    <% end %>
+      <% @user.beers.order('created_at DESC').each do |beer| %>
+        <div class="card">
+          <div class="label" style="background-image: url(<%= beer.label %>)"></div>
+          <div class="beer_info">
+            <p class="name"><%= beer.name %></p>
+            <p><%= beer.brewery %></p>
+            <p><%= beer.style %></p>
+            <p>Availability: <%= beer.available %></p>
+            <p><%= beer.abv %></p>
+            <!-- <%= beer.description %> -->
+            <p><%= link_to("REMOVE", beer_path(beer.id), method: :delete, data: {confirm: 'Are you sure?'}) %></p>
+          </div> 
+        </div>
+      <% end %>
+    </div>
   </div>
 </main>

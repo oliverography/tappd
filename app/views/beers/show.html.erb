@@ -10,34 +10,36 @@
 
 <main>
   <div id="wrapper">
-    <div id="card">
-      <div id="label" style="background-image: url(<%= @beer.labels.large %>)">
-        <!-- <p class="beer"><%= @beer.description %></p> -->
+    <div id="beer">
+      <div class="card">
+        <div class="label" style="background-image: url(<%= @beer.labels.large %>)">
+          <!-- <p class="beer"><%= @beer.description %></p> -->
+        </div>
+        <div class="beer_info">
+          <p class="name"><%= @beer.name %></p>
+          <p><%= @beer.breweries[0].name %></p>
+          <p><%= @beer.style.name unless @beer.style.nil? %></p>
+          <p>Availability: <%= @beer.available.name unless @beer.available.nil? %></p>
+          <p>ABV: <%= @beer.abv %></p>
+          <p>IBU: <%= @beer.ibu %></p>
+        </div>
       </div>
-      <div id="beer_info">
-        <p class="beer name"><%= @beer.name %></p>
-        <p class="beer"><%= @beer.breweries[0].name %></p>
-        <p class="beer"><%= @beer.style.name unless @beer.style.nil? %></p>
-        <p class="beer">Availability: <%= @beer.available.name unless @beer.available.nil? %></p>
-        <p class="beer">ABV: <%= @beer.abv %></p>
-        <p class="beer">IBU: <%= @beer.ibu %></p>
-      </div>
-    </div>
-    <div id="buttons">
-      <%= button_to "NO THANKS", beers_path, method: "get", class: "button dislike" %>
+      <div id="buttons">
+        <%= button_to "NO THANKS", beers_path, method: "get", class: "button dislike" %>
 
-      <%= form_for(@beerLocal, remote: true) do |f| %>
-        <%= f.hidden_field :label, value: @beer.labels.medium unless @beer.labels.nil? %>
-        <%= f.hidden_field :name, value: @beer.name %>
-        <%= f.hidden_field :brewery, value: @beer.breweries[0].name %>
-        <%= f.hidden_field :style, value: @beer.style.name unless @beer.style.nil? %>  
-        <%= f.hidden_field :abv, value: @beer.abv %>
-        <%= f.hidden_field :ibu, value: @beer.ibu %>
-        <%= f.hidden_field :available, value: @beer.available.name unless @beer.available.nil? %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.hidden_field :description, value: @beer.description %>
-        <%= f.submit value: "LET'S DRINK", class: "button like" %>
-      <% end %>
+        <%= form_for(@beerLocal, remote: true) do |f| %>
+          <%= f.hidden_field :label, value: @beer.labels.medium unless @beer.labels.nil? %>
+          <%= f.hidden_field :name, value: @beer.name %>
+          <%= f.hidden_field :brewery, value: @beer.breweries[0].name %>
+          <%= f.hidden_field :style, value: @beer.style.name unless @beer.style.nil? %>  
+          <%= f.hidden_field :abv, value: @beer.abv %>
+          <%= f.hidden_field :ibu, value: @beer.ibu %>
+          <%= f.hidden_field :available, value: @beer.available.name unless @beer.available.nil? %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :description, value: @beer.description %>
+          <%= f.submit value: "LET'S DRINK", class: "button like" %>
+        <% end %>
+      </div>
     </div>
   </div>  
 </main>
