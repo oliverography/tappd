@@ -1,1 +1,8 @@
-hello
+<% @checkins.each do |checkin| %>
+  <p>
+    <%= checkin.beerName %>
+    <%= checkin.venue %>
+    <%= checkin.address %>
+    <%= link_to("REMOVE", checkin_path(checkin.id), method: :delete) %></p>
+  </p>
+<% end %>

@@ -3,12 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*============================================================
-BEERS
+RANDOM BEER
 ============================================================*/
-
 #beer .card {
   margin-bottom: 20px;
-  padding: 10px;
+  width: 365px;
+  margin: 10px 10px 20px 10px;
 }
 
 #beer .card .label {
@@ -32,6 +32,41 @@ BEERS
   -moz-box-sizing: border-box;
 }
 
+.buttons {
+  height: 100px;
+}
+
+.button.dislike {
+  color: white;
+  background-color: red;
+  position: absolute;
+  left: 20px;
+}
+
+.button.dislike:hover {
+  background-color: darkred;
+  transition: all 0.5s ease;
+}
+
+.button.like {
+  color: white;
+  background-color: green;
+  position: absolute;
+  left: 215px;
+}
+
+.button.like:hover {
+  background-color: darkgreen;
+  transition: all 0.5s ease;
+}
+
+/*============================================================
+MY BEER LIST
+============================================================*/
+#list {
+  margin-top: 10px;
+}
+
 #list .card {
   height: 150px;
   margin-bottom: 30px;
@@ -53,7 +88,7 @@ BEERS
   position: relative;
   top: 50%;
   text-align: left;
-  line-height: 24px;
+  line-height: 20px;
   -ms-transform: translate(0, -50%); /* IE 9 */
   -webkit-transform: translate(0, -50%); /* Safari */
   transform: translate(0, -50%);
@@ -63,28 +98,47 @@ BEERS
   font-weight: bold;
 }
 
-.button.dislike {
-  color: white;
-  background-color: red;
-  transition: all 0.1s ease;
+/*============================================================
+MATCH MODAL
+============================================================*/
+#overlay {
+  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+  height: 100%;
+  z-index: 10;
   position: absolute;
-  left: 20px;
+  top: 0;
+  text-align: center;
 }
 
-.button.dislike:hover {
-  background-color: darkred;
+.hidden {
+  display: none;
+}
+
+.beermug {
+  margin: 75px 0 25px 0;
+  width: 150px;
+}
+
+.dreambeer {
+  color: #f28500;
+  font-family: 'Slabo 27px', serif;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.close {
+  background-image: url('close.svg');
+  background-size: 30px 30px;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
   transition: all 0.5s ease;
 }
 
-.button.like {
-  color: white;
-  background-color: green;
-  transition: all 0.1s ease;
-  position: absolute;
-  left: 215px;
-}
-
-.button.like:hover {
-  background-color: darkgreen;
-  transition: all 0.5s ease;
+.close:hover {
+  background-image: url('close_orange.svg');
 }

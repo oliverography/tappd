@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TAPPD</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-  <link href="https://fonts.googleapis.com/css?family=Lato|Slabo+27px" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <title>TAPPD</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <meta name="description" content="Tappd is a beer discovery app that allows users to discover and bookmark beers they want to try. Users are alerted to beers in close proximity.">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Slabo+27px" rel="stylesheet">
+  </head>
+  <body>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>

@@ -1,5 +1,6 @@
 class CheckinsController < ApplicationController
 	def index
+		@checkins = Checkin.all
 	end
 
 	def new
@@ -11,6 +12,12 @@ class CheckinsController < ApplicationController
 		@checkin.save
 		redirect_to :back
 	end
+
+  def destroy
+    Checkin.find(params[:id]).destroy
+
+    redirect_to :back
+  end
 
 	private
 

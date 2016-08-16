@@ -5,8 +5,11 @@
   <h1>TAPPD</h1>
 </nav>
 
-<main>
+<div id="light_orange_bg"></div>
+
+<section>
   <div id="wrapper">
+    <h3>MY BEER LIST</h3>
     <div id="list">
       <% if @beers.length == 0 %>
         <p>No beers yet.</p>
@@ -20,7 +23,8 @@
             <p><%= beer.brewery %></p>
             <p><%= beer.style %></p>
             <p>Availability: <%= beer.available %></p>
-            <p><%= beer.abv %></p>
+            <p>ABV: <%= beer.abv %></p>
+            <p>IBU: <%= beer.ibu %></p>
             <!-- <%= beer.description %> -->
             <p><%= link_to("REMOVE", beer_path(beer.id), method: :delete, data: {confirm: 'Are you sure?'}) %></p>
           </div> 
@@ -28,4 +32,4 @@
       <% end %>
     </div>
   </div>
-</main>
+</section>

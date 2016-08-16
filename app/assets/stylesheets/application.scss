@@ -15,148 +15,134 @@
  */
 
 /*============================================================
+NAV BAR
+============================================================*/
+nav {
+  background-color: #f28500;
+  height: 50px;
+  width: 100vw;
+  margin: 0;
+  text-align: center;
+}
+
+nav .leftIcon {
+  font-size: 12px;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  left: 13px;
+  top: 13px;
+}
+
+nav .rightIcon {
+  font-size: 12px;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  right: 13px;
+  top: 13px;
+}
+
+/*============================================================
 GENERAL
 ============================================================*/
-
 html {
   font-family: 'Lato', sans-serif;
   font-size: 12px;
+  text-align: center;
 }
 
 h1 {
+  color: white;
   font-family: 'Slabo 27px', serif;
   font-size: 50px;
-  color: white;
-  margin-bottom: 10px;
   line-height: 50px;
+  margin-bottom: 10px;
 }
 
 h2 {
+  color: white;
   font-family: 'Slabo 27px', serif;
   font-size: 20px;
-  color: white;
   margin-bottom: 30px;
 }
 
-main {
-  background-color: #faead7;
-  width: 100vw;
-  height: 100%;
-  min-height: 100vh;
-  text-align: center;
-}
-
-#landing {
-  background-color: #f28500;
-  text-align: center;
-  width: 100vw;
-  height: 100vh;
+h3 {
+  color: #f28500;
+  font-family: 'Slabo 27px', serif;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 a {
-  text-decoration: none;
   color: #f28500;
+  text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-/*============================================================
-NAV
-============================================================*/
-nav {
-  width: 100vw;
-  height: 50px;
-  margin: 0;
+#orange_bg {
   background-color: #f28500;
-  text-align: center;
-}
-
-.leftIcon {
-  width: 24px;
-  height: 24px;
-  font-size: 12px;
-  position: absolute;
-  top: 13px;
-  left: 13px;
-}
-
-.rightIcon {
-  width: 24px;
-  height: 24px;
-  font-size: 12px;
-  position: absolute;
-  top: 13px;
-  right: 13px;
-}
-
-/*============================================================
-MATCH MODAL
-============================================================*/
-#overlay {
-  background-color: rgba(0,0,0,0.8);
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  z-index: 10;
-  position: absolute;
+  position: fixed;
   top: 0;
-  text-align: center;
+  z-index: -10;
 }
 
-.hidden {
-  display: none;
+#light_orange_bg {
+  background-color: #faead7;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  z-index: -10;
 }
 
-.beermug {
-  width: 150px;
-  margin: 75px 0 25px 0;
+.field {
+  display: block;
+  margin: 0 auto 30px auto;
+  width: 345px;
+  height: 42px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  padding-left: 20px;
+  border-radius: 22px;
+  border: none;
 }
 
-.dreambeer {
-  font-family: Courier;
-  color: #f28500;
-  font-size: 24px;
-  margin-bottom: 25px;
-}
-
-#close {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  background-size: 30px 30px;
-  background-image: url('close.svg');
+.button {
+  min-width: 150px;
+  height: 42px;
+  border-radius: 22px;
+  border: solid 1px white;
+  margin: 0 auto 30px auto;
+  padding: 0 22px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
   cursor: pointer;
-  transition: all 0.5s ease;
+  transition: all 0.1s ease;
 }
 
-#close:hover {
-  background-image: url('close_orange.svg');
-}
-
-/*============================================================
-DEVISE SIGN IN/UP
-============================================================*/
 #wrapper {
-  position: relative;
-  top: 10vh;
+  position: absolute;
+  top: 15vh;
   left: 50vw;
   width: 385px;
   -ms-transform: translate(-50%, 0); /* IE 9 */
   -webkit-transform: translate(-50%, 0); /* Safari */
   transform: translate(-50%, 0);
-  // border: solid 1px green;
 }
+
+/*============================================================
+DEVISE SIGN IN/UP
+============================================================*/
 
 #title_area, #devise_form {
   width: 385px;
 }
-
-// #title_area, #devise_form {
-//   display: inline-block;
-// }
 
 #logo {
   width: 230px;
@@ -178,37 +164,13 @@ DEVISE SIGN IN/UP
   margin-bottom: 30px;
 }
 
-#devise_links {
-  font-family: 'Lato', sans-serif;
+#devise_links a {
   color: white;
   font-size: 12px;
+  line-height: 18px;
 }
 
-.field {
-  display: block;
-  margin: 0 auto 30px auto;
-  width: 345px;
-  height: 42px;
-  font-family: 'Lato', sans-serif;
-  font-size: 18px;
-  padding-left: 20px;
-  border-radius: 22px;
-  border: none;
-}
-
-.button {
-  min-width: 150px;
-  height: 42px;
-  border-radius: 22px;
-  border: none;
-  margin: 0 auto 30px auto;
-  padding: 0 22px;
-  font-family: 'Lato', sans-serif;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.button.sign {
+.button.sign, .button.delete {
   color: #f28500;
   background-color: white;
 }
@@ -217,96 +179,12 @@ DEVISE SIGN IN/UP
   color: white;
   background-color: #f28500;
   border: solid 1px white;
-  transition: all 0.2s ease;
+  transition: all 0.5s ease;
 }
 
-// #buttonbkg{
-//   background-color: #f28500;
-//   width: 100px;
-//   border: 0px solid;
-//   text-align: center;
-//   color: white;
-// }
-
-// #buttonbkg:hover{
-//   background-color: green;
-//   width:110px;
-//   cursor:pointer
-// }
-
-// #button{
-//   background-color: #f28500;
-//   width: 100px;
-//   border: 0px solid;
-//   text-align:center;
-//   color:white;
-// }
-
-// #button:hover{
-//   background-color: green;
-//   width:110px;
-//   cursor:pointer
-// }
-
-
-
-// .alignment{
-//   text-align:left;
-// }
-
-
-// .centr-contnt{
-//   position:relative;
-//   top:40px;
-// }
-
-// .centr-contnt a{
-//   font-size:11px;
-// }
-
-// .centr-contnt a:hover{
-//   font-size:12px;
-// }
-
-// .alignment{
-//   width:400px;
-//    text-align:left;
-// }
-
-// .centr-contnt input{
-//   width:400px;
-//   border-radius:3px;
-//   border: 0.4px #666666 solid;
-// }
-
-// #editSubmit{
-//   background-color: #f28500;
-//   width: 100px;
-//   border: 0px solid;
-//   text-align:center;
-//   color:white;
-// }
-
-// #editSubmit:hover{
-//   background-color: green;
-//   width:110px;
-//   cursor:pointer
-// }
-
-// #editCancel{
-//   background-color: #f28500;
-//   width: 100px;
-//   border: 0px solid;
-//   text-align:center;
-//   color:white;
-// }
-
-// #editCancel:hover{
-//   background-color: red;
-//   width:110px;
-//   cursor:pointer
-// }
-
-
-
-
+.button.delete:hover {
+  color: white;
+  background-color: red;
+  border: solid 1px white;
+  transition: all 0.5s ease;
+}
