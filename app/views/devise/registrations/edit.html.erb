@@ -5,8 +5,10 @@
   <h1>TAPPD</h1>
 </nav>
 
-<main>
+<div id="light_orange_bg"></div>
+
   <div id="wrapper">
+    <h3>EDIT ACCOUNT</h3>
     <div id="devise_form">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
@@ -19,9 +21,7 @@
       <% end %>
 
       <%= button_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "button sign" %>
-      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button sign" %>
+      <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button delete" %>
     </div>
   </div>
-</main>
-
 

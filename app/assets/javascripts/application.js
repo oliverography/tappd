@@ -13,25 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
-// geolocation
-$(document).ready(function(){
-
-	var X = navigator.geolocation
-
-	function getLocation() {
-    	if (X) {
-       		X.getCurrentPosition(showPosition);
-    	} 
-	}
-
-	function showPosition(position) {
-		var userLat = position.coords.latitude
-		var userLong = position.coords.longitude
-	}
-
-})
-
-
-
-
